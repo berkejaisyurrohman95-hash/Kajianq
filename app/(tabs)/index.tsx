@@ -28,27 +28,27 @@ const { width } = Dimensions.get('window');
 export default function HomeScreen() {
   const { user } = useAuthStore();
 
-  const MenuCard = ({ 
-    title, 
-    icon, 
-    colors, 
-    onPress 
-  }: {
-    title: string;
-    icon: React.ReactNode;
-    colors: string[];
-    onPress: () => void;
-  }) => (
-    <TouchableOpacity style={styles.menuCard} onPress={onPress}>
-      <LinearGradient
-        colors={colors}
-        style={styles.menuGradient}>
-        {icon}
-      </LinearGradient>
-      <Text style={styles.menuText}>{title}</Text>
-    </TouchableOpacity>
-  );
-
+ const MenuCard = ({ 
+  title, 
+  icon, 
+  colors, 
+  onPress 
+}: {
+  title: string;
+  icon: React.ReactNode;
+ 
+  colors: readonly [string, string, ...string[]]; 
+  onPress: () => void;
+}) => (
+  <TouchableOpacity style={styles.menuCard} onPress={onPress}>
+    <LinearGradient
+      colors={colors} 
+      style={styles.menuGradient}>
+      {icon}
+    </LinearGradient>
+    <Text style={styles.menuText}>{title}</Text>
+  </TouchableOpacity>
+);
   const IslamicMenu = () => (
     <View style={styles.islamicMenu}>
       <Text style={styles.sectionTitle}>Menu Islami</Text>
@@ -57,56 +57,56 @@ export default function HomeScreen() {
         <MenuCard
           title="Keilmuan"
           icon={<BookOpen size={20} color="white" strokeWidth={2} />}
-          colors={['#8b5cf6', '#7c3aed']}
+          colors={['#8b5cf6', '#7c3aed'] as const}
           onPress={() => {}}
         />
         
         <MenuCard
           title="Doa Harian"
           icon={<Heart size={20} color="white" strokeWidth={2} />}
-          colors={['#06b6d4', '#0891b2']}
+          colors={['#06b6d4', '#0891b2'] as const}
           onPress={() => {}}
         />
         
         <MenuCard
           title="Bahtsul Masail"
           icon={<MessageCircle size={20} color="white" strokeWidth={2} />}
-          colors={['#f59e0b', '#d97706']}
+          colors={['#f59e0b', '#d97706']as const}
           onPress={() => {}}
         />
         
         <MenuCard
           title="Muamalat"
           icon={<DollarSign size={20} color="white" strokeWidth={2} />}
-          colors={['#10b981', '#059669']}
+          colors={['#10b981', '#059669']as const}
           onPress={() => {}}
         />
         
         <MenuCard
           title="Quote Harian"
           icon={<Book size={20} color="white" strokeWidth={2} />}
-          colors={['#ef4444', '#dc2626']}
+          colors={['#ef4444', '#dc2626']as const}
           onPress={() => {}}
         />
         
         <MenuCard
           title="Donasi"
           icon={<Gift size={20} color="white" strokeWidth={2} />}
-          colors={['#ec4899', '#db2777']}
+          colors={['#ec4899', '#db2777']as const}
           onPress={() => {}}
         />
         
         <MenuCard
           title="Kilas Balik"
           icon={<TrendingUp size={20} color="white" strokeWidth={2} />}
-          colors={['#6366f1', '#4f46e5']}
+          colors={['#6366f1', '#4f46e5']as const}
           onPress={() => {}}
         />
         
         <MenuCard
           title="Kelas Private"
           icon={<Users size={20} color="white" strokeWidth={2} />}
-          colors={['#f97316', '#ea580c']}
+          colors={['#f97316', '#ea580c']as const}
           onPress={() => {}}
         />
       </View>
